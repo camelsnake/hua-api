@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104131507) do
+ActiveRecord::Schema.define(version: 20170104133413) do
 
-  create_table "authors", id: false, force: :cascade do |t|
+  create_table "authors", force: :cascade do |t|
     t.integer "movie_id",       null: false
     t.integer "participant_id", null: false
     t.index ["movie_id", "participant_id"], name: "index_authors_on_movie_id_and_participant_id"
