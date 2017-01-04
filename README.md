@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Install rvm
+* Navigate to this folder again to load correct ruby and gemset
+* Call `bundle install` and wait
+* Call `rails db:reset` - this drops the db if exists, creates it again, and runs all migrations and seeds
+* Run server with `rails s`
 
-Things you may want to cover:
+__note:__ this is a heavily unoptimized app, "large" collections may take some time to load :)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
