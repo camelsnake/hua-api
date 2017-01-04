@@ -7,5 +7,5 @@ class Participant < ApplicationRecord
   has_many :departments, through: :role_types
 
   has_many :authorships
-  has_many :authored_movies, through: :authorships, class_name: :movie
+  has_many :authored_movies, through: :authorships, source: :movie
 end

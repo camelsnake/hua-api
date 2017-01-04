@@ -7,5 +7,5 @@ class Movie < ApplicationRecord
   has_many :participants, through: :roles
 
   has_many :authorships
-  has_many :authors, through: :authorships, class_name: :participant
+  has_many :authors, through: :authorships, source: :participant
 end
