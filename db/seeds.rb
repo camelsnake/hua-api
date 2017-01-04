@@ -52,10 +52,16 @@ NUM_PARTICIPANTS.times do
 end
 
 # Random data - movies
-puts "Generating #{NUM_MOVIES} movies"
+puts "Attempting to generate #{NUM_MOVIES} movies"
+num_discarded = 0
 NUM_MOVIES.times do
-  Movie.create({name: FFaker::Movie.title, description: FFaker::CheesyLingo.paragraph})
+  begin
+    Movie.create({name: FFaker::Movie.title, description: FFaker::CheesyLingo.paragraph})
+  rescue ActiveRecord::RecordNotUnique
+    num_discarded += 1
+  end
 end
+puts "  #{NUM_MOVIES - num_discarded} movies generated (#{num_discarded} discarded due to dupliacte titles)"
 
 # Random join data - movie roles and authors
 puts "Generating relation data - this may take a while.."
