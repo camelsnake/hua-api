@@ -18,18 +18,15 @@ MAX_PARTICIPANTS_PER_MOVIE = 10
 MAX_AUTHORS_PER_MOVIE = 3
 
 # Base data - departments and role types
-puts "Generating departments"
-base_data = { 
-  :Animation => ['Lead animator', 'Assistant animator'],
-  :Sound => ['Main sound person', 'Not so sound person'],
-  :Painting => ['Background painter', 'Foreground painter', 'Middleground painter']
-}
+puts "Generating departments and role types"
+
+departments = 'Director, Scenarist, Producer, Cameraman, Editor, Composer, Sound FX artist, Animator, Compositor, Designer, Background painter, 2D artist, 3D artist, 4D artist'.split(',')
+role_types = %w(Main Assistant Regular Irregular)
   
-puts "Generating role types"
-base_data.each do |dept, role_types|
-  department = Department.create({name: dept})
+departments.each do |dept_name|
+  department = Department.create({name: dept_name})
   role_types.each do |role_type| 
-    RoleType.create({name: role_type, department: department})
+    RoleType.create({name: "#{role_type} #{dept_name}", department: department})
   end
 end
 
