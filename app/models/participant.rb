@@ -5,4 +5,7 @@ class Participant < ApplicationRecord
   has_many :movies, through: :roles
   has_many :role_types, through: :roles
   has_many :departments, through: :role_types
+
+  has_many :authorships
+  has_many :authored_movies, through: :authorships, class_name: :movie
 end
