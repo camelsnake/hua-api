@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :roles
   resources :participants
   resources :role_types
   resources :departments
