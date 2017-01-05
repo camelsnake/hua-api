@@ -1,14 +1,13 @@
 class ParticipantSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  has_one :participant_type
+  attributes :id, :name, :participant_type
 
   has_many :roles
   has_many :movies
   has_many :departments
   has_many :authored_movies
 
-  def role_types
-    object.role_types.uniq{|rt| rt.id}
+  def participant_type
+    object.participant_type.name
   end
 
   def movies
