@@ -2,7 +2,6 @@ class DepartmentSerializer < ActiveModel::Serializer
   attributes :id, :name
 
   has_many :roles
-  has_many :role_types
   has_many :movies
   has_many :participants 
 

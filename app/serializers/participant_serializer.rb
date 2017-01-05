@@ -3,7 +3,6 @@ class ParticipantSerializer < ActiveModel::Serializer
   has_one :participant_type
 
   has_many :roles
-  has_many :role_types
   has_many :movies
   has_many :departments
   has_many :authored_movies

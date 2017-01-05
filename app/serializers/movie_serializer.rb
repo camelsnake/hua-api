@@ -5,8 +5,7 @@ class MovieSerializer < ActiveModel::Serializer
   has_many :participants
 
   has_many :roles
-  has_many :role_types, through: :roles
-  has_many :departments, through: :role_types
+  has_many :departments
 
   def departments
     object.departments.uniq do |dept|
@@ -14,9 +13,9 @@ class MovieSerializer < ActiveModel::Serializer
     end
   end
 
-  def role_types
-    object.role_types.uniq do |rt|
-      rt.id
+  def participants
+    object.participants.uniq do |part|
+      part.id
     end
   end
 
