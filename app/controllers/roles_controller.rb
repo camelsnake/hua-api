@@ -5,12 +5,12 @@ class RolesController < ApplicationController
   def index
     @roles = Role.all
 
-    render json: @roles
+    render json: @roles, include: [:movie, :participant, :department]
   end
 
   # GET /roles/1
   def show
-    render json: @role
+    render json: @role, include: [:movie, :participant, :department]
   end
 
   # POST /roles

@@ -5,12 +5,12 @@ class ParticipantsController < ApplicationController
   def index
     @participants = Participant.all
 
-    render json: @participants
+    render json: @participants, include: [:roles, :movies, :departments, :authored_movies]
   end
 
   # GET /participants/1
   def show
-    render json: @participant
+    render json: @participant, include: [:roles, :movies, :departments, :authored_movies]
   end
 
   # POST /participants
